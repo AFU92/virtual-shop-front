@@ -4,9 +4,9 @@ import NumericInput from "react-numeric-input";
 class QuantityBar extends React.Component {
   state = {
     value: 0,
-    max: 5,
+    max: this.props.product.quantity,
     min: 0,
-    unitPrice: 200,
+    unitPrice: this.props.product.unitPrice,
     subTotalPrice: 0
   };
 
