@@ -11,12 +11,31 @@ class QuantityBar extends React.Component {
   };
 
   calculateSubTotalPrice = event => {
-    console.log(event);
-    console.log(this);
     this.setState({
       value: event,
       subTotalPrice: event * this.state.unitPrice
     });
+  };
+
+  handleAdd = event => {
+    let shoppingCart = localStorage.getItem("shoppingCart");
+    if (shoppingCart === null) {
+      shoppingCart = [];
+    } else {
+      shoppingCart = JSON.parse(shoppingCart);
+    }
+
+    let product = {
+      id: this.props.product.id,
+      name: this.props.product.name,
+      description: this.props.product.description,
+      quantity: this.state.value,
+      unitPrice: this.state.unitPrice
+    };
+
+    shoppingCart.push(product);
+
+    localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
   };
 
   render() {
@@ -35,6 +54,9 @@ class QuantityBar extends React.Component {
           onChange={this.calculateSubTotalPrice}
         />
         <h5>Sub Total Price: {this.state.subTotalPrice}</h5>
+        <button onClick={this.handleAdd} className="btn btn-primary">
+          Add
+        </button>
       </div>
     );
   }

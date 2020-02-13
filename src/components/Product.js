@@ -20,9 +20,6 @@ class Product extends React.Component {
         <Card.Body>
           <Card.Text>{this.props.product.description}</Card.Text>
           <QuantityBar product={this.props.product} />
-          <button onClick={this.handleClick} className="btn btn-primary">
-            Add
-          </button>
         </Card.Body>
       </Card>
     );
