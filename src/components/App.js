@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import "../global.css";
 import Products from "../pages/Products";
 import ShoppingCart from "../pages/ShoppingCart";
+import PaymentForm from "../components/PaymentForm";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Products} />
           <Route exact path="/cart" component={ShoppingCart} />
+          <Route exact path="/pay" component={PaymentForm} />
         </Switch>
       </Layout>
     </BrowserRouter>

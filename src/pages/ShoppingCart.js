@@ -14,20 +14,20 @@ export default class ShoppingCart extends Component {
   };
 
   componentDidMount() {
-    let shoppingCart = localStorage.getItem("shoppingCart");
+    let shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
 
     let calcTotalPrice = 0;
     this.setState({
-      productSale: shoppingCart,
+      productsSale: shoppingCart,
       totalPrice: calcTotalPrice
     });
   }
 
   render() {
-    // Create payment_info_form -> component
     return (
       <div>
-        holi
+        {console.log("this.state.productsSale")}
+        {console.log(this.state.productsSale)}
         {this.state.productsSale.map(productSale => {
           return (
             <li key={productSale.id}>
