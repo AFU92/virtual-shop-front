@@ -34,7 +34,6 @@ export default class Products extends Component {
   render() {
     return (
       <div>
-        {console.log(this.state)}
         {this.state.data.map(product => {
           return (
             <li key={product.id}>

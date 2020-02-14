@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import PaymentService from "../services/PaymentService";
+import PaymentForm from "../components/PaymentForm";
+import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
+import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 
 export default class ShoppingCart extends Component {
   state = {
@@ -28,16 +31,33 @@ export default class ShoppingCart extends Component {
       <div>
         {console.log("this.state.productsSale")}
         {console.log(this.state.productsSale)}
-        {this.state.productsSale.map(productSale => {
-          return (
-            <li key={productSale.id}>
-              <h5>{productSale.name}</h5>
-            </li>
-          );
-        })}
+        <h2>Sale</h2>
+        <Table>
+          <Thead>
+            <Tr>
+              <Th>name</Th>
+              <Th>description</Th>
+              <Th>quantity</Th>
+              <Th>unitPrice</Th>
+            </Tr>
+          </Thead>
+          {this.state.productsSale.map(productSale => {
+            return (
+              <Tbody>
+                <Tr>
+                  <Td>{productSale.name}</Td>
+                  <Td>{productSale.description}</Td>
+                  <Td>{productSale.quantity} </Td>
+                  <Td>{productSale.unitPrice}</Td>
+                </Tr>
+              </Tbody>
+            );
+          })}
+        </Table>
         <button onClick={this.handlePay} className="btn btn-primary">
           Pay
         </button>
+        <PaymentForm />
       </div>
     );
   }
