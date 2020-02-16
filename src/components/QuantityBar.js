@@ -30,7 +30,8 @@ class QuantityBar extends React.Component {
       name: this.props.product.name,
       description: this.props.product.description,
       quantity: this.state.value,
-      unitPrice: this.state.unitPrice
+      unitPrice: this.state.unitPrice,
+      subTotalPrice: this.state.subTotalPrice
     };
 
     shoppingCart.push(product);
